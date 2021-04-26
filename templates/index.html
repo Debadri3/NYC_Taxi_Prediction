@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Number of Cab Pickups in New York City</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="ft_5" placeholder="Pickups in last 40-50 mins" required="required" />
+      <input type="text" name="ft_4" placeholder="Pickups in last 30-40 mins" required="required" />
+      <input type="text" name="ft_3" placeholder="Pickups in last 20-30 mins" required="required" />
+      <input type="text" name="ft_2" placeholder="Pickups in last 10-20 mins" required="required" />
+      <input type="text" name="ft_1" placeholder="Pickups in last 0-10 mins" required="required" />
+      <input type="text" name="lat" placeholder="Latitude of location's cluster centre" required="required" />
+      <input type="text" name="lon" placeholder="Longitude of location's cluster centre " required="required" />
+      <input type="text" name="weekday" placeholder="Day of the week (Sunday=0)" required="required" />
+      <input type="text" name="exp_avg" placeholder="Exponentially weighted average this month" required="required" />
+		
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
